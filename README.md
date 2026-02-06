@@ -1,6 +1,6 @@
 # VoxClaw 🎙️
 
-**Voice-enabled autonomous agent calls for OpenClaw**
+**Voice-enabled autonomous agent calls**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -8,11 +8,20 @@
 
 ## Overview
 
-VoxClaw enables AI agents to make real phone calls and have autonomous conversations to complete business tasks.
+VoxClaw is a **standalone library** that enables AI agents to make real phone calls and have autonomous conversations to complete business tasks.
 
 ```
-OpenClaw Agent → VoxClaw → Real Phone Call → Structured Data Back
+Your AI Agent → VoxClaw → Real Phone Call → Structured Data Back
 ```
+
+## Multi-Platform Support
+
+VoxClaw is designed to integrate with multiple agent frameworks:
+
+| Platform | Adapter | Status |
+|----------|---------|--------|
+| [OpenClaw](https://github.com/openclaw/openclaw) | `@voxclaw/adapter-openclaw` | 🚧 Planned |
+| [Aden Hive](https://github.com/adenhq/hive) | `@voxclaw/adapter-hive` | 🚧 Planned |
 
 ## Use Cases
 
@@ -25,24 +34,30 @@ OpenClaw Agent → VoxClaw → Real Phone Call → Structured Data Back
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────────┐
-│              OpenClaw Agent                     │
-│  "Call Autopista and ask about requirements"   │
-└─────────────────────────────────────────────────┘
-                       ↓
-┌─────────────────────────────────────────────────┐
-│                  VoxClaw                        │
-│  ┌──────────────┐  ┌──────────────────────────┐│
-│  │    Twilio    │←→│ Deepgram Voice Agent API ││
-│  │  (Telephony) │  │   (STT + LLM + TTS)      ││
-│  └──────────────┘  └──────────────────────────┘│
-└─────────────────────────────────────────────────┘
-                       ↓
-┌─────────────────────────────────────────────────┐
-│              Structured Output                   │
-│  { summary, transcript, extracted_data }        │
-└─────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│                      VoxClaw Core                           │
+│           (Standalone library - TypeScript)                 │
+│                                                             │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐ │
+│  │   Twilio    │  │  Deepgram   │  │  Conversation Mgr   │ │
+│  │   Client    │  │ Voice Agent │  │  (State, Prompts)   │ │
+│  └─────────────┘  └─────────────┘  └─────────────────────┘ │
+└─────────────────────────────────────────────────────────────┘
+           ↑                                    ↑
+           │                                    │
+┌──────────────────────┐          ┌──────────────────────────┐
+│  OpenClaw Adapter    │          │   Aden Hive Adapter      │
+│  (Skill)             │          │   (MCP Tool)             │
+└──────────────────────┘          └──────────────────────────┘
 ```
+
+## Packages
+
+| Package | Description |
+|---------|-------------|
+| `@voxclaw/core` | Core library - telephony, voice agent, conversation |
+| `@voxclaw/adapter-openclaw` | OpenClaw skill integration |
+| `@voxclaw/adapter-hive` | Aden Hive MCP tool integration |
 
 ## Tech Stack
 
@@ -53,6 +68,7 @@ OpenClaw Agent → VoxClaw → Real Phone Call → Structured Data Back
 | LLM | Claude 3.5 Sonnet |
 | TTS | Deepgram Aura |
 | Runtime | Node.js / TypeScript |
+| Monorepo | Turborepo |
 
 ## Cost Estimate
 
@@ -64,18 +80,35 @@ OpenClaw Agent → VoxClaw → Real Phone Call → Structured Data Back
 
 ### Roadmap
 
-- [ ] Phase 1: Basic outbound calls with script
+- [ ] Phase 1: Core library - basic outbound calls
 - [ ] Phase 2: Dynamic LLM-powered conversation
-- [ ] Phase 3: OpenClaw skill integration
-- [ ] Phase 4: Inbound call support
+- [ ] Phase 3: OpenClaw adapter
+- [ ] Phase 4: Aden Hive adapter
+- [ ] Phase 5: Inbound call support
 
 ## Getting Started
 
 Coming soon.
 
+```bash
+# Install (planned)
+npm install @voxclaw/core
+
+# With OpenClaw
+npm install @voxclaw/adapter-openclaw
+
+# With Aden Hive
+pip install voxclaw-hive
+```
+
+## Contributing
+
+We welcome contributions! Check out our [contributing guide](CONTRIBUTING.md).
+
 ## Related Projects
 
-- [OpenClaw](https://github.com/openclaw/openclaw) - The AI agent framework
+- [OpenClaw](https://github.com/openclaw/openclaw) - Personal AI assistant
+- [Aden Hive](https://github.com/adenhq/hive) - Autonomous business process framework
 - [Deepgram](https://deepgram.com) - Voice AI platform
 - [Twilio](https://twilio.com) - Cloud communications
 
