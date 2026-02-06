@@ -1,27 +1,29 @@
-# VoxClaw 🎙️
+# Phonon 🎙️
 
 **Voice-enabled autonomous agent calls**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+> *Phonon: A quantum of sound energy - the voice particle for AI agents*
+
 ---
 
 ## Overview
 
-VoxClaw is a **standalone library** that enables AI agents to make real phone calls and have autonomous conversations to complete business tasks.
+Phonon is a **standalone library** that enables AI agents to make real phone calls and have autonomous conversations to complete business tasks.
 
 ```
-Your AI Agent → VoxClaw → Real Phone Call → Structured Data Back
+Your AI Agent → Phonon → Real Phone Call → Structured Data Back
 ```
 
 ## Multi-Platform Support
 
-VoxClaw is designed to integrate with multiple agent frameworks:
+Phonon is designed to integrate with multiple agent frameworks:
 
 | Platform | Adapter | Status |
 |----------|---------|--------|
-| [OpenClaw](https://github.com/openclaw/openclaw) | `@voxclaw/adapter-openclaw` | 🚧 Planned |
-| [Aden Hive](https://github.com/adenhq/hive) | `@voxclaw/adapter-hive` | 🚧 Planned |
+| [OpenClaw](https://github.com/openclaw/openclaw) | `@phonon/adapter-openclaw` | 🚧 Planned |
+| [Aden Hive](https://github.com/adenhq/hive) | `@phonon/adapter-hive` | 🚧 Planned |
 
 ## Use Cases
 
@@ -35,7 +37,7 @@ VoxClaw is designed to integrate with multiple agent frameworks:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                      VoxClaw Core                           │
+│                      Phonon Core                            │
 │           (Standalone library - TypeScript)                 │
 │                                                             │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐ │
@@ -55,9 +57,9 @@ VoxClaw is designed to integrate with multiple agent frameworks:
 
 | Package | Description |
 |---------|-------------|
-| `@voxclaw/core` | Core library - telephony, voice agent, conversation |
-| `@voxclaw/adapter-openclaw` | OpenClaw skill integration |
-| `@voxclaw/adapter-hive` | Aden Hive MCP tool integration |
+| `@phonon/core` | Core library - telephony, voice agent, conversation |
+| `@phonon/adapter-openclaw` | OpenClaw skill integration |
+| `@phonon/adapter-hive` | Aden Hive MCP tool integration |
 
 ## Tech Stack
 
@@ -92,18 +94,28 @@ Coming soon.
 
 ```bash
 # Install (planned)
-npm install @voxclaw/core
+npm install @phonon/core
 
 # With OpenClaw
-npm install @voxclaw/adapter-openclaw
+npm install @phonon/adapter-openclaw
 
 # With Aden Hive
-pip install voxclaw-hive
+pip install phonon-hive
 ```
+
+## Why "Phonon"?
+
+In physics, a **phonon** is a quantum of vibrational/sound energy - the smallest unit of sound in a material. Just as phonons carry sound through matter, Phonon carries voice through AI systems.
 
 ## Contributing
 
 We welcome contributions! Check out our [contributing guide](CONTRIBUTING.md).
+
+## Links
+
+- 🌐 Website: [phonon.sh](https://phonon.sh) *(coming soon)*
+- 📦 NPM: `@phonon/core` *(coming soon)*
+- 🐙 GitHub: [github.com/rcontrerasv/phonon](https://github.com/rcontrerasv/phonon)
 
 ## Related Projects
 
